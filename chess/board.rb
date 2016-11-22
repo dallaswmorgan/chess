@@ -2,7 +2,7 @@ require_relative "piece.rb"
 require 'byebug'
 
 class Board
-
+  attr_accessor :grid
   def initialize
     @grid = Array.new(8) { Array.new(8) }
     @blank = NullPiece.new
@@ -67,5 +67,10 @@ class Board
     elsif self[end_pos].color == self[start_pos].color
       raise "Cannot Capture Your own Piece"
     end
+  end
+
+  def in_bounds?(pos)
+    row, col = pos
+    row.between?(0, 7) && col.between?(0, 7)
   end
 end

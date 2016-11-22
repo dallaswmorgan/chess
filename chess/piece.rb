@@ -1,11 +1,19 @@
 class Piece
+
   attr_accessor :color
+  attr_reader :name
 
   def initialize
     @name = 'piece'
     @color = 'white'
   end
+
+  def to_s
+    name
+  end
+
 end
+
 
 class Knight < Piece
 end
@@ -27,6 +35,7 @@ end
 
 class NullPiece < Piece
   def initialize
+    super
     @color = nil
   end
 end
