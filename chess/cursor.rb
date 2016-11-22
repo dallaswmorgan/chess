@@ -94,8 +94,7 @@ class Cursor
 
     if board.in_bounds?(result_position)
       @cursor_pos = result_position
-    # else
-    #   raise "Invalid Ending Position"
+    # potential for wrapping cursor around!
     end
   end
 end

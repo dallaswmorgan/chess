@@ -23,25 +23,25 @@ class Board
 
   def populate_grid
     rook_positions = [[0, 0], [0, 7], [7, 0], [7, 7]]
-    rook_positions.each { |pos| self[pos] = Rook.new }
+    rook_positions.each { |pos| self[pos] = Rook.new(self, pos) }
 
     knight_positions = [[0, 1], [0, 6], [7, 1], [7, 6]]
-    knight_positions.each { |pos| self[pos] = Knight.new }
+    knight_positions.each { |pos| self[pos] = Knight.new(self, pos) }
 
     bishop_positions = [[0, 2], [0, 5], [7, 2], [7, 5]]
-    bishop_positions.each { |pos| self[pos] = Bishop.new }
+    bishop_positions.each { |pos| self[pos] = Bishop.new(self, pos) }
     #
     pawn_positions = [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4], [1, 5],
                       [1, 6], [1, 7], [6, 0], [6, 1], [6, 2], [6, 3],
                       [6, 4], [6, 5], [6, 6], [6, 7]]
 
-    pawn_positions.each { |pos| self[pos] = Pawn.new }
+    pawn_positions.each { |pos| self[pos] = Pawn.new(self, pos) }
 
     queen_positions = [[0, 4], [7, 3]]
-    queen_positions.each { |pos| self[pos] = Queen.new }
+    queen_positions.each { |pos| self[pos] = Queen.new(self, pos) }
 
     king_positions = [[0, 3], [7, 4]]
-    king_positions.each { |pos| self[pos] = King.new }
+    king_positions.each { |pos| self[pos] = King.new(self, pos) }
 
 
     2.upto(5).each do |row|
