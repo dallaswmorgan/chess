@@ -1,3 +1,4 @@
+require 'singleton'
 require_relative 'piece.rb'
 
 class NullPiece < Piece
@@ -6,7 +7,7 @@ class NullPiece < Piece
 
   def initialize
     @color = nil
-    @name = " "
+    @name = " ⧠ "
   end
 
 end

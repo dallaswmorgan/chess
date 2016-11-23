@@ -1,6 +1,11 @@
-require 'piece.rb'
-require 'SlidingPiece.rb'
+require_relative 'piece.rb'
+require_relative 'slidingpiece.rb'
 
 class Bishop < Piece
-  MOVES = DIR_MODIFIER[:diagonal]
+  include SlidingPiece
+  POTENTIAL_MOVES = DIR_MODIFIER[:diagonal]
+
+  def to_s
+    @name = @color == 'white' ? " ♗ " : " ♝ "
+  end
 end

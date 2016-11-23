@@ -9,7 +9,7 @@ class Display
   end
 
   def render
-    puts @board.grid.map.with_index { |row, i| display_row(row, i) }.join("\n")
+    puts @board.grid.map.with_index { |row, i| display_row(row, i) }.join("\n#{border}\n")
   end
 
   def display_row(row, i)
@@ -20,6 +20,10 @@ class Display
         space.to_s
       end
     end.join("|")
+  end
+
+  def border
+    "_" * 31
   end
 
   def move_cursor

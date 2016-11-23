@@ -1,5 +1,4 @@
 class Piece
-
   attr_accessor :color, :pos
   attr_reader :name, :board
 
@@ -7,6 +6,19 @@ class Piece
     diagonal: [[-1, -1], [-1, 1], [1, -1], [1, 1]],
     nondiagonal: [[-1, 0], [0, -1], [0, 1], [1, 0]]
   }
+
+  def self.dup_piece(new_board, orig_piece)
+    if orig_piece.is_a?(NullPiece)
+      orig_piece
+    else
+      dup_piece = orig_piece.class.new(new_board, orig_piece.pos)
+      if orig_piece.color == 'black'
+        dup_piece.color == 'black'
+      end
+      dup_piece
+    end
+  end
+
 
   def initialize(board, pos)
     @name = 'piece'
@@ -16,7 +28,7 @@ class Piece
   end
 
   def to_s
-    name
+    @name
   end
 
   def moves
